@@ -1,0 +1,24 @@
+
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let product of products" class="col-md-4 mb-4">
+      <div class="card">
+        <img src="{{ product.image }}" alt="{{ product.nom }}" class="card-img-top img-fluid">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ product.nom }}</h5>
+          <p class="card-text">{{ product.prixHT }}€ HT</p>
+          
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-inline-flex align-items-center">
+        <button class="btn btn-outline-secondary" (click)="cartService.decrementQuantity(product.quantite, product.id)">-</button>
+        <span class="mx-2">{{ product.quantite }}</span>
+        <button class="btn btn-outline-secondary" (click)="cartService.incrementQuantity(product.quantite, product.id)">+</button>
+      </div>
+      </div>
+      <button class="btn btn-primary" (click)="cartService.addToCart(product)">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

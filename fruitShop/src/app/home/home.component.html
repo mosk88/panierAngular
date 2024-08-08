@@ -1,0 +1,40 @@
+
+<div class="container">
+  <div class="row">
+    <!-- Product List Column -->
+    <div class="col-md-6">
+      <h1 class="text-center mb-4">Produits</h1>
+      <app-product-list></app-product-list>
+    </div>
+
+    <!-- Cart Column -->
+    <div class="col-md-6">
+      <h1 class="text-center mb-4">Panier</h1>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Varieties</th>
+            <th>prixHT</th>
+            <th>Quantite</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartService.getItems()">
+            <td>{{ item.nom }}</td>
+            <td class="text-muted">{{ item.prixHT }}</td>
+            <td>{{ item.quantite }}</td>
+            <td class="text-center">
+              <button class="btn btn-danger" (click)="cartService.delete(item)">x</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center mt-4">
+        <h3>Total HT: {{ cartService.getTotal() }}</h3>
+        <h1>Total TTC: {{ cartService.getTotalTTC()|number: '1.2-2'}}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
