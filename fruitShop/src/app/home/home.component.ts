@@ -13,9 +13,4 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent  {
   cartService = inject(ProduitService);
-  
-addToCart(product: any) {
-  this.cartService.addItem(product);
-}
-
 }

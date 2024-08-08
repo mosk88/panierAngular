@@ -12,9 +12,9 @@ import { mock } from '../../shared/mock';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent  {
-
+// injecter le service
   cartService = inject(ProduitService);
-
+// recuperer les produits
   products: IProduit[] = [...mock];
     
   }

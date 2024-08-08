@@ -23,10 +23,6 @@ export class ProduitService {
     } else {
       this.items.push(product);
     }
-
-    
-    
-   
   }
 
   // recuperer le panier
