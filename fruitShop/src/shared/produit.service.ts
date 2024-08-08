@@ -9,12 +9,23 @@ import { IProduit } from './entities';
 export class ProduitService {
   
 // recuperer le data
-  items: IProduit[] = mock;
+  items: IProduit[] = [];
+
   constructor() { }
 
   // // ajouter au panier
-  addToCart(product: any) {
-    this.items.push({ ...product, quantite: 1 });
+  addItem(product: IProduit) {
+   
+   const existingItem = this.items.find(item => item.id === product.id);
+
+    if (existingItem) {
+      existingItem.quantite++;
+    } else {
+      this.items.push(product);
+    }
+
+    
+    
    
   }
 
@@ -23,7 +34,7 @@ export class ProduitService {
     return this.items;
   }
     // supprimer du panier
- delete(item: any) {
+ delete(item: IProduit) {
    this.items = this.items.filter((i) => i.id !== item.id);
   }
   // incrementer la quantite
@@ -36,8 +47,8 @@ export class ProduitService {
    decrementQuantity(quantite:number, id:number) {
     let item = this.items.find((i) => i.id === id);
      if (item) {
-       item.quantite--;
-       if (item.quantite === 0) { this.delete(item); }
+       if (item.quantite > 0){
+         item.quantite--;}
       } 
     
   }

@@ -12,7 +12,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent  {
-   cartService = inject(ProduitService);
-
+  cartService = inject(ProduitService);
+  
+addToCart(product: any) {
+  this.cartService.addItem(product);
+}
 
 }

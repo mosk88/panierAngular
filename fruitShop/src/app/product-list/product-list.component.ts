@@ -15,7 +15,7 @@ export class ProductListComponent  {
 
   cartService = inject(ProduitService);
 
-  products: IProduit[] = mock;
+  products: IProduit[] = [...mock];
     
   }
 

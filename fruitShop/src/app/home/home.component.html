@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of cartService.getItems()">
+          <tr *ngFor="let item of cartService.items" class="align-middle">
             <td>{{ item.nom }}</td>
             <td class="text-muted">{{ item.prixHT }}</td>
             <td>{{ item.quantite }}</td>
@@ -31,8 +31,9 @@
       </table>
 
       <div class="text-center mt-4">
-        <h3>Total HT: {{ cartService.getTotal() }}</h3>
+        <h3>Total HT: {{ cartService.getTotal()|number: '1.2-2' }}</h3>
         <h1>Total TTC: {{ cartService.getTotalTTC()|number: '1.2-2'}}</h1>
+        <button class="btn btn-primary" >Valider le panier</button>
       </div>
     </div>
   </div>
